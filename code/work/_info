@@ -1,0 +1,454 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/modelsim/examples
+T_opt
+!s110 1561513801
+VT@=8]Q9VzFkWi;;]L:]G62
+Z1 04 2 4 work tb fast 0
+=1-9c5c8e3830b5-5d12cf46-1f6-4210
+Z2 o-quiet -auto_acc_if_foreign -work work +acc
+n@_opt
+Z3 OL;O;10.4;61
+R0
+T_opt1
+!s110 1562415996
+V13PR7U`VV2<V3E2KGe7FE2
+R1
+=1-9c5c8e3830b5-5d20937c-29c-30a4
+R2
+n@_opt1
+R3
+T_opt2
+!s110 1562415978
+VRAB9j8^kE:ERIW5WL6lJ`0
+R1
+=1-9c5c8e3830b5-5d20936a-c-3f1c
+o-quiet -auto_acc_if_foreign -work work
+n@_opt2
+R3
+R0
+vCP0
+Z4 !s110 1562413201
+!i10b 1
+!s100 :]MJ?EWIzlL8Dh`ESGWz92
+Iceb?K7285DUiT`7]dP?H[1
+Z5 VDg1SIo80bB@j0V0VzS_@n1
+Z6 dD:/RIJWR
+w1562066070
+8D:/RIJWR/CP0.v
+FD:/RIJWR/CP0.v
+L0 2
+Z7 OL;L;10.4;61
+r1
+!s85 0
+31
+!s108 1562413201.187000
+!s107 define.v|D:/RIJWR/CP0.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/RIJWR/CP0.v|
+!i113 0
+Z8 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+n@c@p0
+vCtrl
+R4
+!i10b 1
+!s100 V]HmzK?WN=0:2S:ijDf?60
+I4_gI;]8?dP6lo1N3dmEm93
+R5
+R6
+w1562171570
+8D:/RIJWR/Ctrl.v
+FD:/RIJWR/Ctrl.v
+L0 2
+R7
+r1
+!s85 0
+31
+!s108 1562413201.077000
+!s107 define.v|D:/RIJWR/Ctrl.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/RIJWR/Ctrl.v|
+!i113 0
+R8
+n@ctrl
+vDataMem
+Z9 !s110 1562413200
+!i10b 1
+!s100 JT8^a?@Y`k0HB?9l=l[WV0
+Ioa<0GjjQgh8_9hoYQI@9=1
+R5
+R6
+w1562192654
+8D:/RIJWR/DataMem.v
+FD:/RIJWR/DataMem.v
+L0 2
+R7
+r1
+!s85 0
+31
+!s108 1562413200.524000
+!s107 define.v|D:/RIJWR/DataMem.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/RIJWR/DataMem.v|
+!i113 0
+R8
+n@data@mem
+vEX
+Z10 !s110 1562413199
+!i10b 1
+!s100 OE]V=THo9QjkYUm6fg5ES2
+IGRgahz=D<FH1C5^=?4kKe0
+R5
+R6
+w1562193258
+8D:/RIJWR/EX.v
+FD:/RIJWR/EX.v
+L0 2
+R7
+r1
+!s85 0
+31
+!s108 1562413199.496000
+!s107 define.v|D:/RIJWR/EX.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/RIJWR/EX.v|
+!i113 0
+R8
+n@e@x
+vHiLo
+R9
+!i10b 1
+!s100 fFVmBYl0LXCQi@nM;G4Y10
+I]1mgWU4P9aEi4FVC]Ioo]0
+R5
+R6
+w1561631886
+8D:/RIJWR/HiLo.v
+FD:/RIJWR/HiLo.v
+L0 2
+R7
+r1
+!s85 0
+31
+!s108 1562413200.628000
+!s107 define.v|D:/RIJWR/HiLo.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/RIJWR/HiLo.v|
+!i113 0
+R8
+n@hi@lo
+vID
+R10
+!i10b 1
+!s100 LGjFgl1zihgRRDghUB6Gh2
+IWCX>>CjzeUn]WFL38e8Kk3
+R5
+R6
+w1562042752
+8D:/RIJWR/ID.v
+FD:/RIJWR/ID.v
+L0 2
+R7
+r1
+!s85 0
+31
+!s108 1562413199.410000
+!s107 define.v|D:/RIJWR/ID.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/RIJWR/ID.v|
+!i113 0
+R8
+n@i@d
+vIF
+R9
+!i10b 1
+!s100 LZ[:<EaEIWiFlW8h_m_Bn3
+I1gz>iklOS?3@>mC0To1V93
+R5
+R6
+w1562169226
+Z11 8D:/RIJWR/IF.v
+Z12 FD:/RIJWR/IF.v
+L0 2
+R7
+r1
+!s85 0
+31
+!s108 1562413200.294000
+Z13 !s107 define.v|D:/RIJWR/IF.v|
+Z14 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/RIJWR/IF.v|
+!i113 0
+R8
+n@i@f
+vInstMem
+!s110 1562415974
+!i10b 1
+!s100 iJQZH;?z[Ad7Y?OIW]5K?3
+Ii9>1Jfj<f28de15M]HJXB3
+R5
+R6
+w1562415922
+8D:\RIJWR\InstMem.v
+FD:\RIJWR\InstMem.v
+L0 2
+R7
+r1
+!s85 0
+31
+!s108 1562415974.489000
+!s107 define.v|D:\RIJWR\InstMem.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:\RIJWR\InstMem.v|
+!i113 0
+R8
+n@inst@mem
+vIO
+R9
+!i10b 1
+!s100 hWV3?B7TMhfUMbXC0XB;83
+IjB1ei^3o3T`U37mzLY_W=3
+R5
+R6
+w1562202628
+8D:/RIJWR/IO.v
+FD:/RIJWR/IO.v
+L0 2
+R7
+r1
+!s85 0
+31
+!s108 1562413200.850000
+!s107 define.v|D:/RIJWR/IO.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/RIJWR/IO.v|
+!i113 0
+R8
+n@i@o
+vIo
+!s110 1561713292
+!i10b 1
+!s100 dd]HeaI@91O>Gf9]6E^S;2
+I26adi]USi9TYk2m=oiOKZ0
+R5
+R6
+w1561713285
+8D:\RIJWR\IO.v
+FD:\RIJWR\IO.v
+L0 2
+R7
+r1
+!s85 0
+31
+!s108 1561713292.844000
+!s107 define.v|D:\RIJWR\IO.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:\RIJWR\IO.v|
+!i113 0
+R8
+n@io
+vLLbit
+R9
+!i10b 1
+!s100 SD5BcUXZXF2fIQWJTn]fz3
+I<f?AlRL2IefY`0<A=<joL3
+R5
+R6
+w1562039868
+8D:/RIJWR/LLbit.v
+FD:/RIJWR/LLbit.v
+L0 2
+R7
+r1
+!s85 0
+31
+!s108 1562413200.967000
+!s107 define.v|D:/RIJWR/LLbit.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/RIJWR/LLbit.v|
+!i113 0
+R8
+n@l@lbit
+vMem
+R9
+!i10b 1
+!s100 jnf9H^A5Qdj^Mh0W:WiM91
+IYVWdl1Qb1<UKe=II_j8=`3
+R5
+R6
+w1562186352
+8D:/RIJWR/MEM.v
+FD:/RIJWR/MEM.v
+L0 2
+R7
+r1
+!s85 0
+31
+!s108 1562413200.409000
+!s107 define.v|D:/RIJWR/MEM.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/RIJWR/MEM.v|
+!i113 0
+R8
+n@mem
+vMIOC
+R9
+!i10b 1
+!s100 CG?EJDUbOk]eh4C74T8DW3
+InmRD;A>YYWEW9RhEcM=oh0
+R5
+R6
+w1562185100
+8D:/RIJWR/MIOC.v
+FD:/RIJWR/MIOC.v
+L0 2
+R7
+r1
+!s85 0
+31
+!s108 1562413200.740000
+!s107 define.v|D:/RIJWR/MIOC.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/RIJWR/MIOC.v|
+!i113 0
+R8
+n@m@i@o@c
+vMIPS
+R10
+!i10b 1
+!s100 GLY91aL9QV>oXGKGRLYQ^1
+I2gX4K:<H^hoRKzDke5EB[0
+R5
+R6
+w1562139394
+8D:/RIJWR/MIPS.v
+FD:/RIJWR/MIPS.v
+L0 2
+R7
+r1
+!s85 0
+31
+!s108 1562413199.854000
+!s107 define.v|D:/RIJWR/MIPS.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/RIJWR/MIPS.v|
+!i113 0
+R8
+n@m@i@p@s
+vPC
+!s110 1559396347
+!i10b 1
+!s100 `GF<L?D1_>e52C55E2Fc00
+I4BRAeaGNI=Hd]@o>?hIbP0
+R5
+R6
+w1559354411
+R11
+R12
+L0 2
+R7
+r1
+!s85 0
+31
+!s108 1559396347.577000
+R13
+R14
+!i113 0
+R8
+n@p@c
+vpc
+!s110 1559354292
+!i10b 1
+!s100 KTP?BQhYbh82A>83bhlE20
+I;[dmj0?^K53z0?k[ZT0Z<2
+R5
+R6
+w1559298575
+8D:/RIJWR/PC.v
+FD:/RIJWR/PC.v
+L0 2
+R7
+r1
+!s85 0
+31
+!s108 1559354292.964000
+!s107 define.v|D:/RIJWR/PC.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/RIJWR/PC.v|
+!i113 0
+R8
+vRegFile
+!s110 1562415639
+!i10b 1
+!s100 kK[Z7`c`0gChS2^oSn2En3
+ISYSm5[OTIe;cLiKIfe3^63
+R5
+R6
+w1562415636
+Z15 8D:\RIJWR\RegFile.v
+Z16 FD:\RIJWR\RegFile.v
+L0 2
+R7
+r1
+!s85 0
+31
+!s108 1562415639.852000
+Z17 !s107 define.v|D:\RIJWR\RegFile.v|
+Z18 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:\RIJWR\RegFile.v|
+!i113 0
+R8
+n@reg@file
+vRegfile
+!s110 1559354293
+!i10b 1
+!s100 GKTP`6B?GJWGYl[6=cOVi1
+I^zi^^gkN?o:OZ_:CH9QF<0
+R5
+R6
+w1559350724
+R15
+R16
+L0 2
+R7
+r1
+!s85 0
+31
+!s108 1559354293.527000
+R17
+R18
+!i113 0
+R8
+n@regfile
+vSoc
+R9
+!i10b 1
+!s100 G[mdG2a^gGNLz_Rz:[iCj2
+I6Nf_04kMAihZ=NKI_a08l1
+R5
+R6
+w1562165586
+8D:/RIJWR/Soc.v
+FD:/RIJWR/Soc.v
+L0 2
+R7
+r1
+!s85 0
+31
+!s108 1562413200.073000
+!s107 define.v|D:/RIJWR/Soc.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/RIJWR/Soc.v|
+!i113 0
+R8
+n@soc
+vtb
+R9
+!i10b 1
+!s100 aTUmLaCdm>:^9GWbaW4CS0
+IzXoglRcRz@8zHzfdQ`B8:1
+R5
+R6
+w1559354112
+8D:/RIJWR/testbench.v
+FD:/RIJWR/testbench.v
+L0 2
+R7
+r1
+!s85 0
+31
+!s108 1562413200.181000
+!s107 define.v|D:/RIJWR/testbench.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/RIJWR/testbench.v|
+!i113 0
+R8

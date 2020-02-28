@@ -1,0 +1,15 @@
+`include"define.v"
+module tb();
+    reg rst;
+    reg clk;
+    Soc soc(.rst(rst), .clk(clk));
+    
+    always #10 clk = ~clk;
+    
+    initial
+        begin
+            clk = `Zero;
+            rst = `Invalid;
+            #100 rst = `Valid;
+        end
+endmodule 

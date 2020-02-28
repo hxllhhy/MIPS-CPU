@@ -1,0 +1,126 @@
+D:/RIJWR/CP0.v {1 {vlog -work work -vopt -stats=none D:/RIJWR/CP0.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module CP0
+
+Top level modules:
+	CP0
+
+} {} {}} D:/RIJWR/InstMem.v {1 {vlog -work work -vopt -stats=none {D:\RIJWR\InstMem.v}
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module InstMem
+
+Top level modules:
+	InstMem
+
+} {} {}} D:/RIJWR/EX.v {1 {vlog -work work -vopt -stats=none D:/RIJWR/EX.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module EX
+
+Top level modules:
+	EX
+
+} {} {}} D:/RIJWR/ID.v {1 {vlog -work work -vopt -stats=none D:/RIJWR/ID.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module ID
+
+Top level modules:
+	ID
+
+} {} {}} D:/RIJWR/RegFile.v {1 {vlog -work work -vopt -stats=none {D:\RIJWR\RegFile.v}
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module RegFile
+
+Top level modules:
+	RegFile
+
+} {} {}} D:/RIJWR/MEM.v {1 {vlog -work work -vopt -stats=none D:/RIJWR/MEM.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module Mem
+
+Top level modules:
+	Mem
+
+} {} {}} D:/RIJWR/IF.v {1 {vlog -work work -vopt -stats=none D:/RIJWR/IF.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module IF
+
+Top level modules:
+	IF
+
+} {} {}} D:/RIJWR/MIOC.v {1 {vlog -work work -vopt -stats=none D:/RIJWR/MIOC.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module MIOC
+
+Top level modules:
+	MIOC
+
+} {} {}} D:/RIJWR/testbench.v {1 {vlog -work work -vopt -stats=none D:/RIJWR/testbench.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module tb
+
+Top level modules:
+	tb
+
+} {} {}} D:/RIJWR/define.v {1 {vlog -work work -vopt -stats=none D:/RIJWR/define.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+
+} {} {}} D:/RIJWR/HiLo.v {1 {vlog -work work -vopt -stats=none D:/RIJWR/HiLo.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module HiLo
+
+Top level modules:
+	HiLo
+
+} {} {}} D:/RIJWR/Ctrl.v {1 {vlog -work work -vopt -stats=none D:/RIJWR/Ctrl.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module Ctrl
+
+Top level modules:
+	Ctrl
+
+} {} {}} D:/RIJWR/Soc.v {1 {vlog -work work -vopt -stats=none D:/RIJWR/Soc.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module Soc
+
+Top level modules:
+	Soc
+
+} {} {}} D:/???/???/??/irjlw/IRJLW/IF.v {1 {vlog -work work -vopt -stats=none D:/???/???/??/irjlw/IRJLW/IF.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module IF
+
+Top level modules:
+	IF
+
+} {} {}} D:/RIJWR/LLbit.v {1 {vlog -work work -vopt -stats=none D:/RIJWR/LLbit.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module LLbit
+
+Top level modules:
+	LLbit
+
+} {} {}} D:/RIJWR/IO.v {1 {vlog -work work -vopt -stats=none D:/RIJWR/IO.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module IO
+
+Top level modules:
+	IO
+
+} {} {}} D:/RIJWR/DataMem.v {1 {vlog -work work -vopt -stats=none D:/RIJWR/DataMem.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module DataMem
+
+Top level modules:
+	DataMem
+
+} {} {}} D:/RIJWR/MIPS.v {1 {vlog -work work -vopt -stats=none D:/RIJWR/MIPS.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+-- Compiling module MIPS
+
+Top level modules:
+	MIPS
+
+} {} {}} D:/???/???/??/irjlw/IRJLW/define.v {1 {vlog -work work -vopt -stats=none D:/???/???/??/irjlw/IRJLW/define.v
+Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
+
+} {} {}}

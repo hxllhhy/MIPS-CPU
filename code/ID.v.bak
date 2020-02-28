@@ -1,0 +1,651 @@
+`include"define.v"
+module ID(
+    input wire [31:0]pc,
+    input wire rst,
+    input wire [31:0]inst,
+    input wire [31:0]regaData_i,   
+    input wire [31:0]regbData_i,
+    output reg [5:0]op,
+    //output reg [5:0]type,
+    output reg [31:0]regaData,
+    output reg [31:0]regbData,
+    output reg regcWr,      //use to judge write or make to be part of addr
+    output reg [4:0]regcAddr,
+    output reg regaRd,      //use to judge data from imm or reg.  
+    output reg [4:0]regaAddr,
+    output reg regbRd,      //like regaRd
+    output reg [4:0]regbAddr,
+    output reg [31:0]jAddr,
+    output reg [31:0]imm_o,
+    output reg jCe,
+    output reg [31:0]pc_o
+
+    );
+    wire [5:0]inst_op = inst[31:26];
+    wire [4:0]inst_ops = inst[25:21];
+    wire [5:0]inst_opr = inst[5:0];
+    reg [31:0]imm;
+    reg [31:0]pc_temp;
+    reg judge;
+    always@(*)
+        if(rst == `RstEnable)
+            begin
+                pc_o = pc;
+                op = `nop;
+                //type = `nop;
+                regaRd = `Invalid;       //why regaRead is Invalid but Form_reg or Form_imm 
+                regbRd = `Invalid;
+                regcWr = `Invalid;       //1 bit 0
+                regaAddr = `Zero;        //any bit 0
+                regbAddr = `Zero;
+                regcAddr = `Zero;
+                jCe = `Invalid;
+            end
+        else
+            begin
+                pc_o = pc;
+                case(inst_op) 
+
+///////////////////////////////////////////////////////////////////////////////////                   
+                    `Inst_ori:                   //i operation
+                     begin
+                        op = `Or;
+                        //type = `logic;
+                        regaRd = `Valid;         //read from Read is Valid
+                        regbRd = `Invalid;
+                        regcWr = `Valid;
+                        regaAddr = inst[25:21];  //operand1
+                        regbAddr = `Zero;        //operand2
+                        regcAddr = inst[20:16];  //operand target
+                        imm = {16'h0000, inst[15:0]};
+                        jCe = `Invalid;
+                    end
+
+                   `Inst_addi:
+                       begin
+                           op = `Add;
+                           regaRd = `Valid;
+                           regbRd = `Invalid;
+                           regcWr = `Valid;
+                           regaAddr = inst[25:21];
+                           regbAddr = `Zero;
+                           regcAddr = inst[20:16];
+                           imm = {{16{inst[15]}}, inst[15:0]};
+                           jCe = `Invalid;
+                       end
+
+                   `Inst_andi:
+                       begin
+                           op = `And;
+                           regaRd = `Valid;
+                           regbRd = `Invalid;
+                           regcWr = `Valid;
+                           regaAddr = inst[25:21];
+                           regbAddr = `Zero;
+                           regcAddr = inst[20:16];
+                           imm = {16'h0000, inst[15:0]};
+                           jCe = `Invalid;
+                       end
+
+                   `Inst_xori:
+                       begin
+                           op = `Xor;
+                           regaRd = `Valid;
+                           regbRd = `Invalid;
+                           regcWr = `Valid;
+                           regaAddr = inst[25:21];
+                           regbAddr = `Zero;
+                           regcAddr = inst[20:16];
+                           imm = {16'h0000, inst[15:0]};
+                           jCe = `Invalid;
+                       end
+
+                   `Inst_beq:
+                       begin
+                           op = `Beq;
+                           regaRd = `Valid;
+                           regbRd = `Valid;
+                           regcWr = `Invalid;
+                           regaAddr = inst[25:21];
+                           regbAddr = inst[20:16];
+                           regcAddr = `Zero;
+                           imm = {14'h0000, inst[15:0],2'b00};
+                           if(regaData == regbData)
+                           begin
+                               jAddr = pc + 4 + imm;
+                               jCe = `Valid;
+                           end
+                           else
+                               jCe = `Invalid;                        
+                       end
+
+                   `Inst_bne:
+                       begin
+                           op = `Bne;
+                           regaRd = `Valid;
+                           regbRd = `Valid;
+                           regcWr = `Invalid;
+                           regaAddr = inst[25:21];
+                           regbAddr = inst[20:16];
+                           regcAddr = `Zero;
+                           imm = {14'h0000, inst[15:0],2'b00};
+                           if(regaData != regbData)
+                           begin
+                               jAddr = pc + 4 + imm;
+                               jCe = `Valid;
+                           end
+                           else
+                               jCe = `Invalid;                        
+                       end   
+
+                  `Inst_bgtz:
+                       begin
+                           op = `Bgtz;
+                           regaRd = `Valid;
+                           regbRd = `Invalid;
+                           regcWr = `Invalid;
+                           regaAddr = inst[25:21];
+                           regbAddr = `Zero;
+                           regcAddr = `Zero;
+                           imm = {14'h0000, inst[15:0],2'b00};
+                           if(regaData[31] == 0)
+                           begin
+                               jAddr = pc + 4 + imm;
+                               jCe = `Valid;
+                           end
+                           else
+                               jCe = `Invalid;
+                       end
+
+                  `Inst_bltz:
+                       begin
+                           op = `Bltz;
+                           regaRd = `Valid;
+                           regbRd = `Invalid;
+                           regcWr = `Invalid;
+                           regaAddr = inst[25:21];
+                           regbAddr = `Zero;
+                           regcAddr = `Zero;
+                           imm = {14'h0000, inst[15:0],2'b00};
+                           if(regaData[31] == 1)
+                           begin
+                               jAddr = pc + 4 + imm;
+                               jCe = `Valid;
+                           end
+                           else
+                               jCe = `Invalid;
+                       end
+
+
+                   `Inst_lui:
+                       begin
+                           op = `Lui;
+                           regaRd = `Invalid;
+                           regbRd = `Invalid;
+                           regcWr = `Valid;
+                           regaAddr = `Zero;
+                           regbAddr = `Zero;
+                           regcAddr = inst[20:16];
+                           imm = {inst[15:0], 16'h0000};
+                           jCe = `Invalid;
+                       end  
+//////////////////////////////////////////////////////////////////////////////////
+                   `Inst_Cp0:
+                       begin
+                           case(inst_ops)
+                               `Inst_mfc0:
+                                   begin
+                                       op = `Mfc0;
+                                       regaRd = `Invalid;
+                                       regbRd = `Invalid;
+                                       regcWr = `Valid;
+                                       imm_o[4:0] = inst[15:11];
+                                       regaAddr = `Zero;
+                                       regbAddr = `Zero;
+                                       regcAddr = inst[20:16];
+                                       imm = `Zero;
+                                       jCe = `Invalid;
+                                   end
+
+                               `Inst_mtc0:
+                                   begin
+                                       op = `Mtc0;
+                                       regaRd = `Valid;
+                                       regbRd = `Invalid;
+                                       regcWr = `Invalid;
+                                       regaAddr = inst[20:16];
+                                       regbAddr = `Zero;
+                                       imm_o[4:0] = inst[15:11];
+                                       regcAddr = `Zero;
+                                       imm = `Zero;
+                                       jCe = `Invalid;
+                                   end
+                              
+                               default:
+                                   begin
+                                       op = `Nop;
+                                       regaRd = `Invalid;
+                                       regbRd = `Invalid;
+                                       regcWr = `Invalid;
+                                       regaAddr = `Zero;
+                                       regbAddr = `Zero;
+                                       regcAddr = `Zero;
+                                       imm = `Zero;
+                                       jCe = `Invalid;
+                                   end
+                           endcase
+
+                           case(inst_opr)
+                               `Inst_eret:
+                                   begin
+                                       op = `Eret;
+                                       regaRd = `Invalid;
+                                       regbRd = `Invalid;
+                                       regcWr = `Invalid;
+                                       regaAddr = `Zero;
+                                       regbAddr = `Zero;
+                                       regcAddr = `Zero;
+                                       imm = `Zero;
+                                       jCe = `Invalid;
+                                   end
+                           endcase
+                       end
+//////////////////////////////////////////////////////////////////////////////////
+                   `Nop:                          //r operations
+                     begin
+                         case(inst_opr)
+                         `Inst_and:
+                             begin
+                                 op = `And;
+                                 regaRd = `Valid;
+                                 regbRd = `Valid;
+                                 regcWr = `Valid;
+                                 regaAddr = inst[25:21];
+                                 regbAddr = inst[20:16];
+                                 regcAddr = inst[15:11];
+                                 imm = `Zero;
+                                 jCe = `Invalid;
+                             end
+
+                         `Inst_add:
+                             begin
+                                 op = `Add;
+                                 regaRd = `Valid;
+                                 regbRd = `Valid;
+                                 regcWr = `Valid;
+                                 regaAddr = inst[25:21];
+                                 regbAddr = inst[20:16];
+                                 regcAddr = inst[15:11];
+                                 imm = `Zero;
+                                 jCe = `Invalid;
+                             end
+                             
+                         `Inst_sub:
+                             begin
+                                 op = `Sub;
+                                 regaRd = `Valid;
+                                 regbRd = `Valid;
+                                 regcWr = `Valid;
+                                 regaAddr = inst[25:21];
+                                 regbAddr = inst[20:16];
+                                 regcAddr = inst[15:11];
+                                 imm = `Zero;
+                                 jCe = `Invalid;                                 
+                             end
+                         `Inst_or:
+                             begin
+                                 op = `Or;
+                                 regaRd = `Valid;
+                                 regbRd = `Valid;
+                                 regcWr = `Valid;
+                                 regaAddr = inst[25:21];
+                                 regbAddr = inst[20:16];
+                                 regcAddr = inst[15:11];
+                                 imm = `Zero;
+                                 jCe = `Invalid;
+                             end
+                         `Inst_xor:
+                             begin
+                                 op = `Xor;
+                                 regaRd = `Valid;
+                                 regbRd = `Valid;
+                                 regcWr = `Valid;
+                                 regaAddr = inst[25:21];
+                                 regbAddr = inst[20:16];
+                                 regcAddr = inst[15:11];
+                                 imm = `Zero;
+                                 jCe = `Invalid;
+                             end
+                         `Inst_sll:
+                             begin
+                                 op = `Sll;
+                                 regaRd = `Valid;
+                                 regbRd = `Invalid;
+                                 regcWr = `Valid;
+                                 regaAddr = inst[20:16];
+                                 regbAddr = `Zero;
+                                 regcAddr = inst[15:11];
+                                 imm = {27'b0, inst[10:6]};
+                                 jCe = `Invalid;
+                             end
+                         `Inst_srl:
+                             begin
+                                 op = `Srl;
+                                 regaRd = `Valid;
+                                 regbRd = `Invalid;
+                                 regcWr = `Valid;
+                                 regaAddr = inst[20:16];
+                                 regbAddr = `Zero;
+                                 regcAddr = inst[15:11];
+                                 imm = {27'b0, inst[10:6]};
+                                 jCe = `Invalid;
+                             end
+                         `Inst_sra:
+                             begin
+                                 op = `Sra;
+                                 regaRd = `Valid;
+                                 regbRd = `Invalid;
+                                 regcWr = `Valid;
+                                 regaAddr = inst[20:16];
+                                 regbAddr = `Zero;
+                                 regcAddr = inst[15:11];
+                                 imm = {27'b0, inst[10:6]};
+                                 jCe = `Invalid;
+                             end
+
+                         `Inst_jr:
+                             begin
+                                 op = `Jr;
+                                 regaRd = `Valid;
+                                 regbRd = `Invalid;
+                                 regcWr = `Invalid;
+                                 regaAddr = inst[25:21];
+                                 regbAddr = `Zero;
+                                 regcAddr = `Zero;
+                                 imm = `Zero;
+                                 jAddr = regaData;
+                                 jCe = `Valid;
+                             end
+
+
+                         `Inst_mult:
+                             begin
+                                 op = `Mult;
+                                 regaRd = `Valid;
+                                 regbRd = `Valid;
+                                 regcWr = `Invalid;
+                                 regaAddr = inst[25:21];
+                                 regbAddr = inst[20:16];
+                                 regcAddr = `Zero;
+                                 imm = `Zero;
+                                 jCe = `Invalid;
+                             end
+
+                         `Inst_multu:
+                             begin
+                                 op = `Multu;
+                                 regaRd = `Valid;
+                                 regbRd = `Valid;
+                                 regcWr = `Invalid;
+                                 regaAddr = inst[25:21];
+                                 regbAddr = inst[20:16];
+                                 regcAddr = `Zero;
+                                 imm = `Zero;
+                                 jCe = `Invalid;
+                             end
+
+                         `Inst_div:
+                             begin
+                                 op = `Div;
+                                 regaRd = `Valid;
+                                 regbRd = `Valid;
+                                 regcWr = `Invalid;
+                                 regaAddr = inst[25:21];
+                                 regbAddr = inst[20:16];
+                                 regcAddr = `Zero;
+                                 imm = `Zero;
+                                 jCe = `Invalid;
+                             end
+
+                         `Inst_divu:
+                             begin
+                                 op = `Divu;
+                                 regaRd = `Valid;
+                                 regbRd = `Valid;
+                                 regcWr = `Invalid;
+                                 regaAddr = inst[25:21];
+                                 regbAddr = inst[20:16];
+                                 regcAddr = `Zero;
+                                 imm = `Zero;
+                                 jCe = `Invalid;
+                             end
+
+                         `Inst_mfhi:
+                             begin
+                                 op = `Mfhi;
+                                 regaRd = `Invalid;
+                                 regbRd = `Invalid;
+                                 regcWr = `Valid;
+                                 regaAddr = `Zero;
+                                 regbAddr = `Zero;
+                                 regcAddr = inst[15:11];
+                                 imm = `Zero;
+                                 jCe = `Invalid;
+                             end
+
+                         `Inst_mflo:
+                             begin
+                                 op = `Mflo;
+                                 regaRd = `Invalid;
+                                 regbRd = `Invalid;
+                                 regcWr = `Valid;
+                                 regaAddr = `Zero;
+                                 regbAddr = `Zero;
+                                 regcAddr = inst[15:11];
+                                 imm = `Zero;
+                                 jCe = `Invalid;
+                             end
+
+                         `Inst_mthi:
+                             begin
+                                 op = `Mthi;
+                                 regaRd = `Valid;
+                                 regbRd = `Invalid;
+                                 regcWr = `Invalid;
+                                 regaAddr = inst[25:21];
+                                 regbAddr = `Zero;
+                                 regcAddr = `Zero;
+                                 imm = `Zero;
+                                 jCe = `Invalid;
+                             end
+
+                         `Inst_mtlo:
+                             begin
+                                 op = `Mtlo;
+                                 regaRd = `Valid;
+                                 regbRd = `Invalid;
+                                 regcWr = `Invalid;
+                                 regaAddr = inst[25:21];
+                                 regbAddr = `Zero;
+                                 regcAddr = `Zero;
+                                 imm = `Zero;
+                                 jCe = `Invalid;
+                             end
+
+                         `Inst_jalr:
+                             begin
+                                 op = `Jalr;
+                                 regaRd = `Valid;
+                                 regbRd = `Invalid;
+                                 regcWr = `Valid;
+                                 regaAddr = inst[25:21];
+                                 regbAddr = `Zero;
+                                 regcAddr = inst[15:11];
+                                 imm_o = pc + 4;
+                                 jAddr = regaData_i;
+                                 jCe = `Valid;
+                             end
+
+                         `Inst_slt:
+                             begin
+                                 op = `Slt;
+                                 regaRd = `Valid;
+                                 regbRd = `Valid;
+                                 regcWr = `Valid;
+                                 regaAddr = inst[25:21];
+                                 regbAddr = inst[20:16];
+                                 regcAddr = inst[15:11];
+                                 imm = `Zero;
+                                 jCe = `Invalid;
+                             end
+                         default:
+                             begin
+                                 op = `nop;
+                                 //type = `nop;
+                                 regaRd = `Invalid;     
+                                 regbRd = `Invalid;
+                                 regcWr = `Invalid;    
+                                 regaAddr = `Zero;        
+                                 regbAddr = `Zero;
+                                 regcAddr = `Zero;  
+                                 imm = `Zero;
+                                 jCe = `Invalid;
+                             end
+                         endcase
+                     end
+/////////////////////////////////////////////////////////////////////////////////////////
+                     `Inst_j:                              //j operation
+                     begin
+                         op = `J;
+                         //type = `nop;
+                         regaRd = `Invalid;     
+                         regbRd = `Invalid;
+                         regcWr = `Invalid;    
+                         regaAddr = `Zero;        
+                         regbAddr = `Zero;
+                         regcAddr = `Zero;  
+                         imm = `Zero;
+                         pc_temp = pc + 4;
+                         jAddr = {pc_temp[31:28], inst[25:0], 2'b00};
+                         jCe = `Valid;
+                     end
+
+                     `Inst_jal:                              //j operation
+                     begin
+                         op = `Jal;
+                         regaRd = `Invalid;     
+                         regbRd = `Invalid;
+                         regcWr = `Valid;    
+                         regaAddr = `Zero;        
+                         regbAddr = `Zero;
+                         regcAddr = 5'b11111;  
+                         imm_o = pc + 4;
+                         pc_temp = pc + 4;
+                         jAddr = {pc_temp[31:28], inst[25:0], 2'b00};
+                         jCe = `Valid;
+                     end
+
+                    `Inst_syscall:
+                    begin
+                         op = `Syscall;
+                         regaRd = `Invalid;     
+                         regbRd = `Invalid;
+                         regcWr = `Invalid;    
+                         regaAddr = `Zero;        
+                         regbAddr = `Zero;
+                         regcAddr = `Zero;  
+                         jAddr = `Zero;
+                         jCe = `Invalid;
+                     end
+/////////////////////////////////////////////////////////////////////////////////////////                    
+                    `Inst_lw:
+                        begin
+                            op = `Lw;
+                            regaRd = `Valid;
+                            regbRd = `Invalid;
+                            regcWr = `Valid;
+                            regaAddr = inst[25:21];
+                            regbAddr = `Zero;
+                            regcAddr = inst[20:16];
+                            imm = {16'h0000, inst[15:0]};
+                            jCe = `Invalid;
+                            jAddr = `Zero;
+                        end
+
+                    `Inst_sw:
+                        begin
+                            op = `Sw;
+                            regaRd = `Valid;
+                            regbRd = `Valid;
+                            regcWr = `Invalid;        //
+                            regaAddr = inst[25:21];
+                            regbAddr = inst[20:16];
+                            regcAddr = `Zero;
+                            imm = {16'h0000, inst[15:0]};
+                            imm_o = imm;
+                            jCe = `Invalid;
+                            jAddr = `Zero;                        
+                        end
+                       
+                    `Inst_ll:
+                        begin
+                           op = `Ll;
+                           regaRd = `Valid;
+                           regbRd = `Invalid;
+                           regcWr = `Valid;
+                           regaAddr = inst[25:21];
+                           regbAddr = `Zero;
+                           regcAddr = inst[20:16];
+                           imm = {16'h0000, inst[15:0]};
+                           jCe = `Invalid;
+                           jAddr = `Zero;
+                       end
+
+                    `Inst_sc:
+                        begin
+                            op = `Sc;
+                            regaRd = `Valid;
+                            regbRd = `Valid;
+                            regcWr = `Valid;        //
+                            regaAddr = inst[25:21];
+                            regbAddr = inst[20:16];
+                            regcAddr = inst[20:16];
+                            imm = {16'h0000, inst[15:0]};
+                            imm_o = imm;
+                            jCe = `Invalid;
+                            jAddr = `Zero;                        
+                        end
+////////////////////////////////////////////////////////////////////////////////////
+                    default:
+                    begin
+                        op = `nop;
+                        //type = `nop;
+                        regaRd = `Invalid;     
+                        regbRd = `Invalid;
+                        regcWr = `Invalid;    
+                        regaAddr = `Zero;        
+                        regbAddr = `Zero;
+                        regcAddr = `Zero; 
+                        imm = `Zero;
+                        jCe = `Invalid;                       
+                    end
+                endcase
+            end
+            
+            always@(*)
+                if(rst == `RstEnable)
+                    regaData = `Zero;
+                else if(regaRd == `Valid)
+                    regaData = regaData_i;
+                else
+                    regaData = imm;
+
+            always@(*)
+                if(rst == `RstEnable)
+                    regbData = `Zero;
+                else if(regbRd == `Valid)
+                    regbData = regbData_i;
+                else
+                    regbData = imm;
+
+endmodule

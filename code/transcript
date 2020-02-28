@@ -1,0 +1,284 @@
+# Compile of ID.v was successful.
+# Compile of EX.v was successful.
+# Compile of define.v was successful.
+# Compile of RegFile.v was successful.
+# Compile of MIPS.v was successful.
+# Compile of InstMem.v was successful.
+# Compile of Soc.v was successful.
+# Compile of testbench.v was successful.
+# Compile of IF.v was successful.
+# Compile of MEM.v was successful.
+# Compile of DataMem.v was successful.
+# Compile of HiLo.v was successful.
+# Compile of MIOC.v was successful.
+# Compile of IO.v was successful.
+# Compile of LLbit.v was successful.
+# Compile of Ctrl.v was successful.
+# Compile of CP0.v was successful.
+# 17 compiles, 0 failed with no errors.
+vsim -voptargs=+acc work.tb
+# vsim -gui D:\RIJWR\RIJWR.mpf 
+# Start time: 19:38:25 on Jul 06,2019
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# 
+# Loading work.tb(fast)
+# Loading work.Soc(fast)
+# Loading work.MIPS(fast)
+# Loading work.IF(fast)
+# Loading work.ID(fast)
+# Loading work.EX(fast)
+# Loading work.RegFile(fast)
+# Loading work.Mem(fast)
+# Loading work.HiLo(fast)
+# Loading work.MIOC(fast)
+# Loading work.LLbit(fast)
+# Loading work.CP0(fast)
+# Loading work.Ctrl(fast)
+# Loading work.InstMem(fast)
+# Loading work.IO(fast)
+# Loading work.DataMem(fast)
+quit -sim
+# Compile of ID.v was successful.
+# Compile of EX.v was successful.
+# Compile of define.v was successful.
+# Compile of RegFile.v was successful.
+# Compile of MIPS.v was successful.
+# Compile of InstMem.v failed with 1 errors.
+# Compile of Soc.v was successful.
+# Compile of testbench.v was successful.
+# Compile of IF.v was successful.
+# Compile of MEM.v was successful.
+# Compile of DataMem.v was successful.
+# Compile of HiLo.v was successful.
+# Compile of MIOC.v was successful.
+# Compile of IO.v was successful.
+# Compile of LLbit.v was successful.
+# Compile of Ctrl.v was successful.
+# Compile of CP0.v was successful.
+# 17 compiles, 1 failed with 1 error.
+# Compile of InstMem.v was successful.
+vsim -voptargs=+acc work.tb
+# vsim 
+# Start time: 19:40:19 on Jul 06,2019
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# 
+# Loading work.tb(fast)
+# Loading work.Soc(fast)
+# Loading work.MIPS(fast)
+# Loading work.IF(fast)
+# Loading work.ID(fast)
+# Loading work.EX(fast)
+# Loading work.RegFile(fast)
+# Loading work.Mem(fast)
+# Loading work.HiLo(fast)
+# Loading work.MIOC(fast)
+# Loading work.LLbit(fast)
+# Loading work.CP0(fast)
+# Loading work.Ctrl(fast)
+# Loading work.InstMem(fast)
+# Loading work.IO(fast)
+# Loading work.DataMem(fast)
+add wave -position insertpoint sim:/tb/soc/mips/id/pc
+add wave -position insertpoint sim:/tb/soc/mips/id/inst
+add wave -position insertpoint sim:/tb/soc/mips/id/imm
+add wave -position insertpoint sim:/tb/soc/mips/regfile/Ram
+run
+quit -sim
+vsim -voptargs=+acc work.tb
+# vsim 
+# Start time: 19:51:02 on Jul 06,2019
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# 
+# Loading work.tb(fast)
+# Loading work.Soc(fast)
+# Loading work.MIPS(fast)
+# Loading work.IF(fast)
+# Loading work.ID(fast)
+# Loading work.EX(fast)
+# Loading work.RegFile(fast)
+# Loading work.Mem(fast)
+# Loading work.HiLo(fast)
+# Loading work.MIOC(fast)
+# Loading work.LLbit(fast)
+# Loading work.CP0(fast)
+# Loading work.Ctrl(fast)
+# Loading work.InstMem(fast)
+# Loading work.IO(fast)
+# Loading work.DataMem(fast)
+add wave -position insertpoint sim:/tb/soc/mips/id/pc
+add wave -position insertpoint sim:/tb/soc/mips/id/inst
+add wave -position insertpoint sim:/tb/soc/mips/id/imm
+add wave -position insertpoint sim:/tb/soc/mips/regfile/Ram
+run
+quit -sim
+# Compile of RegFile.v was successful.
+vsim -voptargs=+acc work.tb
+# vsim 
+# Start time: 19:56:21 on Jul 06,2019
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# 
+# Loading work.tb(fast)
+# Loading work.Soc(fast)
+# Loading work.MIPS(fast)
+# Loading work.IF(fast)
+# Loading work.ID(fast)
+# Loading work.EX(fast)
+# Loading work.RegFile(fast)
+# Loading work.Mem(fast)
+# Loading work.HiLo(fast)
+# Loading work.MIOC(fast)
+# Loading work.LLbit(fast)
+# Loading work.CP0(fast)
+# Loading work.Ctrl(fast)
+# Loading work.InstMem(fast)
+# Loading work.IO(fast)
+# Loading work.DataMem(fast)
+add wave -position insertpoint sim:/tb/soc/mips/id/pc
+add wave -position insertpoint sim:/tb/soc/mips/id/inst
+add wave -position insertpoint sim:/tb/soc/mips/id/imm
+add wave -position insertpoint sim:/tb/soc/mips/regfile/Ram
+run
+add wave -position insertpoint sim:/tb/soc/datamem/mem
+restart -f
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# 
+# Loading work.tb(fast)
+# Loading work.Soc(fast)
+# Loading work.MIPS(fast)
+# Loading work.IF(fast)
+# Loading work.ID(fast)
+# Loading work.EX(fast)
+# Loading work.RegFile(fast)
+# Loading work.Mem(fast)
+# Loading work.HiLo(fast)
+# Loading work.MIOC(fast)
+# Loading work.LLbit(fast)
+# Loading work.CP0(fast)
+# Loading work.Ctrl(fast)
+# Loading work.InstMem(fast)
+# Loading work.IO(fast)
+# Loading work.DataMem(fast)
+run
+quit -sim
+# Compile of RegFile.v was successful.
+# Compile of InstMem.v was successful.
+vsim -voptargs=+acc work.tb
+# vsim 
+# Start time: 20:10:06 on Jul 06,2019
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# 
+# Loading work.tb(fast)
+# Loading work.Soc(fast)
+# Loading work.MIPS(fast)
+# Loading work.IF(fast)
+# Loading work.ID(fast)
+# Loading work.EX(fast)
+# Loading work.RegFile(fast)
+# Loading work.Mem(fast)
+# Loading work.HiLo(fast)
+# Loading work.MIOC(fast)
+# Loading work.LLbit(fast)
+# Loading work.CP0(fast)
+# Loading work.Ctrl(fast)
+# Loading work.InstMem(fast)
+# Loading work.IO(fast)
+# Loading work.DataMem(fast)
+add wave -position insertpoint sim:/tb/soc/mips/id/pc
+add wave -position insertpoint sim:/tb/soc/mips/id/inst
+add wave -position insertpoint sim:/tb/soc/mips/id/imm
+add wave -position insertpoint sim:/tb/soc/mips/regfile/Ram
+add wave -position insertpoint sim:/tb/soc/mips/hilo/rhi
+add wave -position insertpoint sim:/tb/soc/mips/hilo/rlo
+run
+quit -sim
+# Compile of RegFile.v was successful.
+vsim -voptargs=+acc work.tb
+# vsim 
+# Start time: 20:20:42 on Jul 06,2019
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# 
+# Loading work.tb(fast)
+# Loading work.Soc(fast)
+# Loading work.MIPS(fast)
+# Loading work.IF(fast)
+# Loading work.ID(fast)
+# Loading work.EX(fast)
+# Loading work.RegFile(fast)
+# Loading work.Mem(fast)
+# Loading work.HiLo(fast)
+# Loading work.MIOC(fast)
+# Loading work.LLbit(fast)
+# Loading work.CP0(fast)
+# Loading work.Ctrl(fast)
+# Loading work.InstMem(fast)
+# Loading work.IO(fast)
+# Loading work.DataMem(fast)
+add wave -position insertpoint sim:/tb/soc/mips/id/pc
+add wave -position insertpoint sim:/tb/soc/mips/id/inst
+add wave -position insertpoint sim:/tb/soc/mips/regfile/Ram
+run
+quit -sim
+# Compile of InstMem.v was successful.
+vsim work.tb
+# vsim 
+# Start time: 20:26:17 on Jul 06,2019
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# 
+# ** Warning: D:/RIJWR/testbench.v(5): (vopt-2685) [TFMPC] - Too few port connections for 'soc'.  Expected 4, found 2.
+# 
+# ** Warning: D:/RIJWR/testbench.v(5): (vopt-2718) [TFMPC] - Missing connection for port 'sel'.
+# 
+# ** Warning: D:/RIJWR/testbench.v(5): (vopt-2718) [TFMPC] - Missing connection for port 'led'.
+# 
+# Loading work.tb(fast)
+quit -sim
+vsim -voptargs=+acc work.tb
+# vsim 
+# Start time: 20:26:36 on Jul 06,2019
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# 
+# Loading work.tb(fast)
+# Loading work.Soc(fast)
+# Loading work.MIPS(fast)
+# Loading work.IF(fast)
+# Loading work.ID(fast)
+# Loading work.EX(fast)
+# Loading work.RegFile(fast)
+# Loading work.Mem(fast)
+# Loading work.HiLo(fast)
+# Loading work.MIOC(fast)
+# Loading work.LLbit(fast)
+# Loading work.CP0(fast)
+# Loading work.Ctrl(fast)
+# Loading work.InstMem(fast)
+# Loading work.IO(fast)
+# Loading work.DataMem(fast)
+add wave -position insertpoint sim:/tb/soc/mips/id/pc
+add wave -position insertpoint sim:/tb/soc/mips/id/inst
+add wave -position insertpoint sim:/tb/soc/mips/regfile/Ram
+add wave -position insertpoint sim:/tb/soc/mips/Cp0/intimer
+add wave -position insertpoint sim:/tb/soc/mips/Cp0/cp0ram
+run
+add wave -position insertpoint sim:/tb/soc/mips/llbit/rLLbit
+restart -f
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# 
+# Loading work.tb(fast)
+# Loading work.Soc(fast)
+# Loading work.MIPS(fast)
+# Loading work.IF(fast)
+# Loading work.ID(fast)
+# Loading work.EX(fast)
+# Loading work.RegFile(fast)
+# Loading work.Mem(fast)
+# Loading work.HiLo(fast)
+# Loading work.MIOC(fast)
+# Loading work.LLbit(fast)
+# Loading work.CP0(fast)
+# Loading work.Ctrl(fast)
+# Loading work.InstMem(fast)
+# Loading work.IO(fast)
+# Loading work.DataMem(fast)
+run
+# End time: 21:24:10 on Jul 06,2019, Elapsed time: 0:57:34
+# Errors: 0, Warnings: 0
